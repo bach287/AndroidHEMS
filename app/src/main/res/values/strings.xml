@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">AndroidHems</string>
+    <string name="logo">HEMS</string>
+    <string name="find_devices">デバイスを探し</string>
+    <string name="demonstration">デモンストレーション</string>
+    <string name="status">Status:</string>
+    <string name="mode">Mode:</string>
+    <string name="instantan">Instantaneous:</string>
+    <string name="total">Total:</string>
+    <string name="not_found">Could not found any device.</string>
+    <string name="refresh">Refresh</string>
+    <string name="instantan_input">Instantaneous Value</string>
+    <string name="on">ON</string>
+    <string name="off">OFF</string>
+    <string-array name="planets_array">
+        <item>Mercury</item>
+        <item>Venus</item>
+        <item>Earth</item>
+        <item>Mars</item>
+        <item>Jupiter</item>
+        <item>Saturn</item>
+        <item>Uranus</item>
+        <item>Neptune</item>
+    </string-array>
+
+</resources>

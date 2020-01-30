@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:columnCount="2"
+    android:rowCount="2"
+    tools:context=".MainActivity"
+    android:layout_weight="2"
+    android:background="@drawable/gradient">
+
+    <TextView
+        android:layout_row="0"
+        android:layout_column="0"
+        android:layout_columnSpan="2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/logo"
+        android:textSize="100sp"
+        android:textAlignment="center"
+        android:fontFamily=""
+        android:layout_rowWeight="1"
+        android:layout_gravity="center"
+        android:textColor="#ffffff"
+        />
+    <RelativeLayout
+        android:layout_row="1"
+        android:layout_column="0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_rowWeight="2"
+        android:layout_gravity="top"
+        >
+        <ImageButton
+            android:id="@+id/button"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="@mipmap/find_round"
+            android:contentDescription="@string/find_devices"
+            android:layout_centerHorizontal="true"
+            android:onClick="onClickFind"
+            />
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="44dp"
+            android:layout_below="@id/button"
+            android:layout_marginTop="6dp"
+            android:text="@string/find_devices"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:textSize="@dimen/icon_text" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_row="1"
+        android:layout_rowWeight="2"
+        android:layout_column="1"
+        android:layout_columnWeight="1"
+        android:layout_gravity="top"
+
+        >
+
+        <ImageButton
+            android:id="@+id/button1"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/demonstration"
+            android:background="@mipmap/show" />
+
+        <TextView
+            android:layout_width="160dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/button1"
+            android:layout_centerHorizontal="true"
+            android:text="@string/demonstration"
+            android:textAlignment="center"
+            android:textSize="@dimen/icon_text" />
+
+    </RelativeLayout>
+
+</GridLayout>

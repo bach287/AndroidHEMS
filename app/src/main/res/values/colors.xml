@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#86c232</color>
+    <color name="colorPrimaryDark">#61892f</color>
+    <color name="textColorPrimary">#FFFFFF</color>
+    <color name="windowBackground">#222629</color>
+    <color name="navigationBarColor">#6b6e70</color>
+    <color name="colorAccent">#FFFFFF</color>
+    <color name="electric_value">#e35f42</color>
+    <color name="device_bg">#e3e3e3</color>
+</resources>
