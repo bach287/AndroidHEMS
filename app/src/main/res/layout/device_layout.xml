@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    android:id="@+id/device_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    android:columnCount="2"
-    android:rowCount="1"
-    android:background="@color/device_bg"
     android:layout_marginEnd="8dp"
-    android:id="@+id/device_layout">
+    android:background="@color/device_bg"
+    android:columnCount="2"
+    android:orientation="vertical"
+    android:rowCount="1">
+
     <ImageView
         android:id="@+id/device_image"
-        android:layout_height="140dp"
         android:layout_width="140dp"
+        android:layout_height="140dp"
         android:layout_column="0"
         android:layout_gravity="center"
-        android:padding="8dp"
-    />
+        android:padding="8dp" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_column="1"
-        android:layout_margin="8dp"
         android:layout_columnWeight="1"
+        android:layout_margin="8dp"
         android:orientation="vertical">
 
         <TextView
@@ -31,19 +31,19 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:text="@string/status"
-            android:textSize="@dimen/device_text"
             android:textAlignment="center"
-             />
+            android:textSize="@dimen/device_text" />
+
         <TextView
             android:id="@+id/status_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
+            android:gravity="end"
+            android:textAlignment="center"
             android:textColor="@color/electric_value"
             android:textSize="@dimen/device_value"
-            android:textStyle="bold"
-            android:gravity="end"
-            android:textAlignment="center"/>
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/mode_label"
@@ -51,59 +51,61 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:text="@string/mode"
-            android:textSize="@dimen/device_text"
             android:textAlignment="center"
-             />
+            android:textSize="@dimen/device_text" />
+
         <TextView
             android:id="@+id/mode_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/device_value"
-            android:textStyle="bold"
-            android:textColor="@color/electric_value"
             android:gravity="end"
-            android:textAlignment="center"/>
+            android:textAlignment="center"
+            android:textColor="@color/electric_value"
+            android:textSize="@dimen/device_value"
+            android:textStyle="bold" />
+
         <TextView
             android:id="@+id/instantan_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:text="@string/instantan"
-            android:textSize="@dimen/device_text"
-            android:textAlignment="center"/>
+            android:textAlignment="center"
+            android:textSize="@dimen/device_text" />
+
         <TextView
             android:id="@+id/instantan_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:maxLines="2"
             android:layout_columnWeight="1"
-            android:textSize="@dimen/device_value"
-            android:textStyle="bold"
-            android:textColor="@color/electric_value"
             android:gravity="end"
+            android:maxLines="2"
             android:textAlignment="center"
-            />
+            android:textColor="@color/electric_value"
+            android:textSize="@dimen/device_value"
+            android:textStyle="bold" />
+
         <TextView
             android:id="@+id/total_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:text="@string/total"
-            android:textSize="@dimen/device_text"
-            android:textAlignment="center"/>
+            android:textAlignment="center"
+            android:textSize="@dimen/device_text" />
 
 
         <TextView
             android:id="@+id/total_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:maxLines="2"
             android:layout_columnWeight="1"
-            android:textSize="@dimen/device_value"
-            android:textStyle="bold"
-            android:textColor="@color/electric_value"
             android:gravity="end"
-            android:textAlignment="center"/>
+            android:maxLines="2"
+            android:textAlignment="center"
+            android:textColor="@color/electric_value"
+            android:textSize="@dimen/device_value"
+            android:textStyle="bold" />
     </LinearLayout>
 
 </GridLayout>

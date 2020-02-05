@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AndroidHems</string>
+    <string name="logo">HEMS</string>
+    <string name="find_devices">Tìm thiết bị</string>
+    <string name="demonstration">Hiển thị</string>
+    <string name="status">Trạng thái:</string>
+    <string name="mode">Chế độ:</string>
+    <string name="instantan">Giá trị tức thời:</string>
+    <string name="total">Total:</string>
+    <string name="not_found">Không tìm thấy thiết bị nào.</string>
+    <string name="refresh">Tải lại</string>
+    <string name="instantan_input">Nhập giá trị tức thời</string>
+    <string name="on">Bật</string>
+    <string name="off">Tắt</string>
+    <string name="button_set">Áp dụng</string>
+    <string name="start_time_picker">Thời gian bắt đầu</string>
+    <string name="end_time_picker">Thời gian kết thúc</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="instantan_not_null">Hãy nhập giá trị tức thời!</string>
+    <string name="time_not_null">Hãy nhập thời gian!</string>
+    <string name="msg_set_status_failed">Thiết lập trạng thái thất bại!</string>
+    <string name="msg_set_status_success">Thiết lập trạng thái thành công!</string>
+    <string name="msg_set_mode_success">Thiết lập chế độ thành công!</string>
+    <string name="msg_set_mode_failed">Thiết lập chế độ thất bại!</string>
+    <string name="msg_set_schedule_success">Thiết lập thành công!</string>
+    <string name="msg_set_schedule_failed">Thiết lập thất bại!</string>
+
+</resources>

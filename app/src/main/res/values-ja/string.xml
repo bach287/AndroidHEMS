@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AndroidHems</string>
+    <string name="logo">HEMS</string>
+    <string name="find_devices">デバイスを探す</string>
+    <string name="demonstration">デモンストレーション</string>
+    <string name="status">状態:</string>
+    <string name="mode">モード:</string>
+    <string name="instantan">瞬時値:</string>
+    <string name="total">電気量:</string>
+    <string name="not_found">デバイスが無い.</string>
+    <string name="refresh">リフレシュ</string>
+    <string name="instantan_input">瞬時値入力</string>
+    <string name="on">オン</string>
+    <string name="off">オフ</string>
+    <string name="button_set">設定</string>
+    <string name="start_time_picker">初めて時間</string>
+    <string name="end_time_picker">終了時間</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="instantan_not_null">瞬時値を入力してください。</string>
+    <string name="time_not_null">時間を入力してください。</string>
+    <string name="msg_set_status_failed">状態を設定できません。</string>
+    <string name="msg_set_status_success">状態を設定しました。</string>
+    <string name="msg_set_mode_success">モードを設定しました。</string>
+    <string name="msg_set_mode_failed">モードを設定できません。。</string>
+    <string name="msg_set_schedule_success">スケジュールを設定しました。</string>
+    <string name="msg_set_schedule_failed">スケジュールを設定できません。</string>
+
+</resources>

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -12,13 +13,8 @@ import android.os.StrictMode;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.RelativeLayout;
 
-import com.bach.androidhems.EchoNET.EchoAsyncTask;
-import com.sonycsl.echo.Echo;
-
-import java.io.IOException;
-import java.net.InetAddress;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     @Override
@@ -27,12 +23,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
 
-            }
-        });
         Log.d("Echo", "onCreate");
     }
 
@@ -58,6 +49,45 @@ public class MainActivity extends AppCompatActivity {
         }
         Intent findDevice = new Intent(this,FindDevices.class);
         this.startActivity(findDevice);
+    }
+
+    public void onClickJapan(View view){
+        Locale locale = new Locale("ja");
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.setLocale(locale);
+        getResources().updateConfiguration(
+                config,getResources().getDisplayMetrics()
+        );
+
+        //It is required to recreate the activity to reflect the change in UI.
+        recreate();
+    }
+
+    public void onClickVietnamese(View view){
+        Locale locale = new Locale("vi");
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.setLocale(locale);
+        getResources().updateConfiguration(
+                config,getResources().getDisplayMetrics()
+        );
+
+        //It is required to recreate the activity to reflect the change in UI.
+        recreate();
+    }
+
+    public void onClickEnglish(View view){
+        Locale locale = new Locale("");
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.setLocale(locale);
+        getResources().updateConfiguration(
+                config,getResources().getDisplayMetrics()
+        );
+
+        //It is required to recreate the activity to reflect the change in UI.
+        recreate();
     }
 
     public boolean isNetWorkConnected(){

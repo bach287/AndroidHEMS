@@ -10,6 +10,7 @@
         android:id="@+id/activity_find_devices"
         tools:context=".FindDevices">
         <Button
+            android:id="@+id/refresh_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/ic_refresh_black_24dp"
