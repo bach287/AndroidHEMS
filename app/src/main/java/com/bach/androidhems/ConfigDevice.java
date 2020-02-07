@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -25,6 +26,8 @@ import com.bach.androidhems.Receiver.MyEVReceiver;
 import com.bach.androidhems.Receiver.MyLightReceiver;
 import com.bach.androidhems.Receiver.MySolarReceiver;
 import com.bach.androidhems.Receiver.Receivable;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.sonycsl.echo.Echo;
 import com.sonycsl.echo.EchoProperty;
 import com.sonycsl.echo.eoj.device.DeviceObject;
@@ -57,7 +60,9 @@ public class ConfigDevice extends AppCompatActivity implements Receivable {
     private TextView totalLabel;
     private TextView totalTextView;
     private Spinner modeSpinner;
-    private EditText instantanInput;
+    private TextInputLayout instantanInput;
+    private TextInputEditText instantanInputEdit;
+
 
 
     @Override
@@ -79,6 +84,7 @@ public class ConfigDevice extends AppCompatActivity implements Receivable {
         totalTextView = findViewById(R.id.total_text);
         modeSpinner = findViewById(R.id.mode_spinner);
         instantanInput = findViewById(R.id.instantan_input);
+        instantanInputEdit = findViewById(R.id.instantan_edit_text);
         ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, DataHandle.modesArray);
         switch (name){
             case "ev":
@@ -167,7 +173,7 @@ public class ConfigDevice extends AppCompatActivity implements Receivable {
         Button endTimeBtn = findViewById(R.id.end_time_picker);
         String startTime = startTimeBtn.getText().toString();
         String endTime = endTimeBtn.getText().toString();
-        String instantan = instantanInput.getText().toString();
+        Editable instantan = instantanInputEdit.getText();
 
         if(!startTime.equals("") && !endTime.equals("")){
             edt = DataHandle.timeHandle(startTime).concat(DataHandle.timeHandle(endTime));
@@ -178,14 +184,15 @@ public class ConfigDevice extends AppCompatActivity implements Receivable {
 
         switch (name){
             case "solar":
-                if (!instantan.equals("")){
-                    instantan = Long.toHexString(Long.parseLong(instantan));
-                    while (instantan.length() < 4){
-                        instantan = "0".concat(instantan);
+                if (instantan != null && instantan.length() != 0 && instantan.length() <= 9){
+                    String instantanValue = instantan.toString();
+                    instantanValue = Long.toHexString(Long.parseLong(instantanValue));
+                    while (instantanValue.length() < 4){
+                        instantanValue = "0".concat(instantanValue);
                     }
-                    edt = edt.concat(instantan);
+                    edt = edt.concat(instantanValue);
                 }else{
-                    displayError(getResources().getString(R.string.instantan_not_null));
+                    instantanInput.setError(getResources().getString(R.string.instantan_not_null));
                     return;
                 }
                 Log.d("Echo:", "onClickSetBtn: edt:" + edt);
@@ -198,14 +205,15 @@ public class ConfigDevice extends AppCompatActivity implements Receivable {
             case "ev":
                 mode = modeSpinner.getSelectedItem().toString();
                 edt = edt.concat(DataHandle.modeReverter(mode));
-                if (!instantan.equals("")){
-                    instantan = Long.toHexString(Long.parseLong(instantan));
-                    while (instantan.length() < 8){
-                        instantan = "0".concat(instantan);
+                if (instantan != null && instantan.length() != 0 && instantan.length() <= 9){
+                    String instantanValue = instantan.toString();
+                    instantanValue = Long.toHexString(Long.parseLong(instantanValue));
+                    while (instantanValue.length() < 8){
+                        instantanValue = "0".concat(instantanValue);
                     }
-                    edt = edt.concat(instantan);
+                    edt = edt.concat(instantanValue);
                 }else{
-                    displayError(getResources().getString(R.string.instantan_not_null));
+                    instantanInput.setError(getResources().getString(R.string.instantan_not_null));
                     return;
                 }
                 Log.d("Echo:", "onClickSetBtn: edt:" + edt);
@@ -218,14 +226,15 @@ public class ConfigDevice extends AppCompatActivity implements Receivable {
             case "battery":
                 mode = modeSpinner.getSelectedItem().toString();
                 edt = edt.concat(DataHandle.modeReverter(mode));
-                if (!instantan.equals("")){
-                    instantan = Long.toHexString(Long.parseLong(instantan));
-                    while (instantan.length() < 8){
-                        instantan = "0".concat(instantan);
+                if (instantan != null && instantan.length() != 0 && instantan.length() <= 9){
+                    String instantanValue = instantan.toString();
+                    instantanValue = Long.toHexString(Long.parseLong(instantanValue));
+                    while (instantanValue.length() < 8){
+                        instantanValue = "0".concat(instantanValue);
                     }
-                    edt = edt.concat(instantan);
+                    edt = edt.concat(instantanValue);
                 }else{
-                    displayError(getResources().getString(R.string.instantan_not_null));
+                    instantanInput.setError(getResources().getString(R.string.instantan_not_null));
                     return;
                 }
                 Log.d("Echo:", "onClickSetBtn: edt:" + edt);

@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="solar_background">#26A69A</color>
+    <color name="solar_background">@color/colorPrimary</color>
 </resources>

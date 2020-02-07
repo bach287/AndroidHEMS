@@ -102,7 +102,8 @@
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:contentDescription="@string/demonstration"
-                android:background="@mipmap/show" />
+                android:background="@mipmap/show"
+                android:onClick="onClickDemonstration"/>
 
             <TextView
                 android:layout_width="match_parent"

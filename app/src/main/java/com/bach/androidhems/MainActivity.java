@@ -14,6 +14,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.sonycsl.echo.Echo;
+import com.sonycsl.echo.eoj.device.DeviceObject;
+import com.sonycsl.echo.processing.defaults.DefaultController;
+import com.sonycsl.echo.processing.defaults.DefaultNodeProfile;
+
+import java.io.IOException;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
@@ -34,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
         button.setClickable(true);
     }
 
-
     public void onClickFind(View view){
         ImageButton button = view.findViewById(R.id.button);
         button.setClickable(false);
@@ -51,34 +56,25 @@ public class MainActivity extends AppCompatActivity {
         this.startActivity(findDevice);
     }
 
-    public void onClickJapan(View view){
-        Locale locale = new Locale("ja");
-        Locale.setDefault(locale);
-        Configuration config = new Configuration();
-        config.setLocale(locale);
-        getResources().updateConfiguration(
-                config,getResources().getDisplayMetrics()
-        );
+    public void onClickDemonstration(View view){
+        Intent demo = new Intent(this, DemonstrationActivity.class);
+        this.startActivity(demo);
+    }
 
-        //It is required to recreate the activity to reflect the change in UI.
-        recreate();
+    public void onClickJapan(View view){
+        languageChange("ja");
     }
 
     public void onClickVietnamese(View view){
-        Locale locale = new Locale("vi");
-        Locale.setDefault(locale);
-        Configuration config = new Configuration();
-        config.setLocale(locale);
-        getResources().updateConfiguration(
-                config,getResources().getDisplayMetrics()
-        );
-
-        //It is required to recreate the activity to reflect the change in UI.
-        recreate();
+        languageChange("vi");
     }
 
     public void onClickEnglish(View view){
-        Locale locale = new Locale("");
+        languageChange("");
+    }
+
+    private void languageChange(String language){
+        Locale locale = new Locale(language);
         Locale.setDefault(locale);
         Configuration config = new Configuration();
         config.setLocale(locale);

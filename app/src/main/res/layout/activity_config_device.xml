@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    android:layout_width="match_parent"
+<ScrollView android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <LinearLayout
         xmlns:tools="http://schemas.android.com/tools"
         android:orientation="vertical"
@@ -124,47 +124,55 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/status_btn_on"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/on"
                     android:layout_alignParentEnd="true"
                     android:layout_marginEnd="@dimen/margin_common"
-                    android:background="@color/colorPrimary"
-                    android:textColor="@color/textColorPrimary"
                     android:onClick="onClickStatusOn"/>
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/status_btn_off"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/off"
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="@dimen/margin_common"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                     android:background="@color/device_bg"
-                    android:textColor="@color/navigationBarColor"
                     android:onClick="onClickStatusOff"/>
             </RelativeLayout>
 
-            <Spinner
+            <androidx.appcompat.widget.AppCompatSpinner
                 android:id="@+id/mode_spinner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_common"
                 android:textAlignment="center"
                 android:spinnerMode="dropdown"
-                android:layout_gravity="center"/>
-            <EditText
+                android:layout_gravity="center"
+                />
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/instantan_input"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/instantan_input"
-                android:maxLength="9"
-                android:inputType="number"
                 android:layout_gravity="center"
-                android:textAlignment="center"
-                android:layout_marginTop="@dimen/margin_common"
-                android:layout_marginBottom="@dimen/margin_common"/>
+                app:errorEnabled="true"
+                app:boxBackgroundMode="outline"
+                app:boxBackgroundColor="@color/textColorPrimary"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/instantan_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:maxLength="9"
+                    android:layout_marginBottom="@dimen/margin_common"
+                    android:layout_marginTop="@dimen/margin_common"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -186,7 +194,7 @@
                     android:hint="@string/end_time_picker"
                     android:onClick="onClickShowEndTimePicker"/>
             </RelativeLayout>
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/set_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

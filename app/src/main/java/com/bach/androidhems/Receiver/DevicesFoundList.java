@@ -11,20 +11,20 @@ public final class DevicesFoundList {
 
     }
 
-    public void addDevice(DeviceObject object){
+    public static void addDevice(DeviceObject object){
         if(object != null)
             deviceObjects.add(object);
     }
 
-    public ArrayList<DeviceObject> getDevicesList(){
+    public static ArrayList<DeviceObject> getDevicesList(){
         return deviceObjects;
     }
 
-    public int getSize(){
+    public static int getSize(){
         return deviceObjects.size();
     }
 
-    public void removeAll(){
+    public static void removeAll(){
         deviceObjects.clear();
     }
 }

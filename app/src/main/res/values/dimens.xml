@@ -11,7 +11,8 @@
     <dimen name="device_text">16sp</dimen>
     <dimen name="device_value">16sp</dimen>
     <dimen name="margin_common">16dp</dimen>
-    <dimen name="icon_language">50dp</dimen>
+    <dimen name="icon_language">45dp</dimen>
     <dimen name="margin_language_icon">8dp</dimen>
+    <dimen name="demo_device_wrap_width">170dp</dimen>
 
 </resources>
