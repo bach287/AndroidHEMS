@@ -3,6 +3,7 @@ package com.bach.androidhems.EchoNET;
 import android.content.Context;
 import android.util.Log;
 
+import com.bach.androidhems.Receiver.DemoReceivable;
 import com.bach.androidhems.Receiver.DevicesFoundList;
 import com.bach.androidhems.Receiver.MyBatteryReceiver;
 import com.bach.androidhems.Receiver.MyEVReceiver;
@@ -34,6 +35,8 @@ public class EchoStart {
                 public void onNewElectricVehicle(ElectricVehicle device) {
                     super.onNewElectricVehicle(device);
                     Log.d("Echo:", "Electric vehicle found.");
+                    //Start show device on Demonstration
+
                     device.setReceiver(new MyEVReceiver(context));
                     try {
                         device.get().reqGetOperationStatus().send();
@@ -49,6 +52,7 @@ public class EchoStart {
                 public void onNewBattery(Battery device) {
                     super.onNewBattery(device);
                     Log.d("Echo:", "Battery found.");
+
                     device.setReceiver(new MyBatteryReceiver(context));
                     try {
                         device.get().reqGetOperationStatus().send();
@@ -64,6 +68,7 @@ public class EchoStart {
                 public void onNewGeneralLighting(GeneralLighting device) {
                     super.onNewGeneralLighting(device);
                     Log.d("Echo:", "GeneralLighting found.");
+
                     device.setReceiver(new MyLightReceiver());
                     try {
                         device.get().reqGetOperationStatus().send();
@@ -76,6 +81,7 @@ public class EchoStart {
                 public void onNewHouseholdSolarPowerGeneration(HouseholdSolarPowerGeneration device) {
                     super.onNewHouseholdSolarPowerGeneration(device);
                     Log.d("Echo:", "HouseholdSolarPowerGeneration found.");
+
                     device.setReceiver(new MySolarReceiver(context));
                     try {
                         device.get().reqGetOperationStatus().send();
@@ -84,19 +90,14 @@ public class EchoStart {
                         e.printStackTrace();
                     }
                 }
-
             });
             NodeProfile.informG().reqInformSelfNodeInstanceListS().send();
-
-
-
         } catch (Exception e) {
             Log.d("Echo: ", "run: " + e.getMessage());
         }
     }
 
     public void addDeviceList() {
-//        ArrayList<DeviceObject> devices = new ArrayList<>();
         DevicesFoundList.removeAll();
         for (EchoNode node : Echo.getNodes()) {
             Log.d("Echo", "Node profile:" + node.getNodeProfile());
@@ -109,7 +110,4 @@ public class EchoStart {
             }
         }
     }
-
-
-
 }

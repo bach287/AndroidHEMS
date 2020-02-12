@@ -12,6 +12,7 @@ import java.io.Serializable;
 public class MyLightReceiver extends GeneralLighting.Receiver implements Serializable {
     public static Receivable onReceive;
     public static String operationStatus = "";
+    public static DemoReceivable demoReceivable;
 
     public MyLightReceiver(){
 
@@ -22,6 +23,9 @@ public class MyLightReceiver extends GeneralLighting.Receiver implements Seriali
         super.onGetOperationStatus(eoj, tid, esv, property, success);
         if(success){
             operationStatus = DataHandle.statusConverter(property.edt);
+            if(demoReceivable != null){
+                demoReceivable.demoFoundLight(operationStatus);
+            }
         }else{
             Log.d("Echo:", " Fail to get Light status");
         }

@@ -18,26 +18,40 @@
             android:layout_height="match_parent"
             android:padding="0dp">
 
-            <ImageButton
-                android:id="@+id/demo_device_img"
+            <ImageView
+                android:id="@+id/demo_ev_img"
                 style="@style/MyDeviceObject"
-                android:background="@mipmap/ev_foreground" />
-
+                />
             <TextView
-                android:id="@+id/text1"
+                android:id="@+id/demo_ev_instantan_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/demo_device_img"
-                android:text="99999999"
+                android:layout_columnWeight="1"
+                android:text="@string/instantan"
+                android:textSize="@dimen/device_text"
+                android:layout_below="@+id/demo_ev_img"
                 android:textAlignment="center"
-                android:textSize="@dimen/device_text" />
+                android:visibility="invisible"/>
+            <TextView
+                android:id="@+id/demo_ev_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/demo_ev_instantan_label"
+                android:textAlignment="center"
+                style="@style/MyDeviceValue"/>
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/text1"
+                android:id="@+id/demo_ev_arrow"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_below="@id/demo_ev_instantan_label"
                 android:layout_centerHorizontal="true"
-                android:src="@drawable/ic_keyboard_arrow_down_black_48dp" />
+                android:elevation="-1dp"
+                android:src="@drawable/ic_keyboard_arrow_up_black_48dp"
+                android:visibility="invisible"/>
+
+<!--            android:src="@drawable/ic_keyboard_arrow_down_black_48dp"-->
+
         </RelativeLayout>
 
         <RelativeLayout
@@ -46,25 +60,34 @@
             android:layout_alignParentEnd="true">
 
             <ImageView
-                android:id="@+id/demo_device_img2"
-                style="@style/MyDeviceObject"
-                android:src="@mipmap/battery_foreground" />
-
+                android:id="@+id/demo_battery_img"
+                style="@style/MyDeviceObject" />
             <TextView
-                android:id="@+id/text2"
+                android:id="@+id/demo_battery_instantan_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/demo_device_img2"
-                android:text="99999999"
+                android:layout_columnWeight="1"
+                android:text="@string/instantan"
+                android:textSize="@dimen/device_text"
+                android:layout_below="@+id/demo_battery_img"
                 android:textAlignment="center"
-                android:textSize="@dimen/device_text" />
+                android:visibility="invisible"/>
+            <TextView
+                android:id="@+id/demo_battery_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/demo_battery_instantan_label"
+                android:textAlignment="center"
+                style="@style/MyDeviceValue" />
 
             <ImageView
+                android:id="@+id/demo_battery_arrow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/text2"
+                android:layout_below="@id/demo_battery_instantan_label"
                 android:layout_centerHorizontal="true"
-                android:src="@drawable/ic_keyboard_arrow_down_black_48dp" />
+                android:elevation="-1dp"
+                android:visibility="invisible"/>
         </RelativeLayout>
     </RelativeLayout>
 
@@ -88,85 +111,102 @@
                 android:src="@mipmap/home_foreground"
                 android:layout_gravity="center"
                 />
-
-            <TextView
-                android:id="@+id/demo_home_instantan"
+            <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="99999999"
-                android:textAlignment="center"
-                android:textSize="@dimen/device_text" />
+                android:layout_height="match_parent"
+                >
+                <TextView
+                    android:id="@+id/demo_home_instantan_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/instantan"
+                    android:textSize="@dimen/device_text"
+                    android:textAlignment="center"
+                    android:layout_above="@+id/demo_home_text_view"/>
+                <TextView
+                    android:id="@+id/demo_home_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textAlignment="center"
+                    android:layout_centerInParent="true"
+                    style="@style/MyDeviceValue"/>
+            </RelativeLayout>
         </LinearLayout>
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="160dp"
-
         android:layout_weight="2">
 
         <RelativeLayout
-            android:id="@+id/wrap3"
             android:layout_width="@dimen/demo_device_wrap_width"
             android:layout_height="match_parent"
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true">
             <ImageView
+                android:id="@+id/demo_solar_arrow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_above="@id/demo_device_img3"
+                android:layout_above="@id/demo_solar_img"
                 android:layout_centerHorizontal="true"
-                android:src="@drawable/ic_keyboard_arrow_down_black_48dp"/>
+                android:src="@drawable/ic_keyboard_arrow_up_black_48dp"
+                android:visibility="invisible"/>
             <ImageView
-                android:id="@+id/demo_device_img3"
+                android:id="@+id/demo_solar_img"
                 style="@style/MyDeviceObject"
-                android:src="@mipmap/battery_foreground"
-                android:layout_above="@+id/text3"
+                android:layout_above="@+id/demo_solar_text_view"
                 />
-
             <TextView
-                android:id="@+id/text3"
+                android:id="@+id/demo_solar_instantan_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:text="@string/instantan"
+                android:textSize="@dimen/device_text"
+                android:layout_above="@+id/demo_solar_text_view"
+                android:textAlignment="center"
+                android:visibility="invisible"/>
+            <TextView
+                android:id="@+id/demo_solar_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:text="99999999"
-                android:textSize="@dimen/device_text" />
+                style="@style/MyDeviceValue"
+                />
 
 
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/wrap2"
             android:layout_width="@dimen/demo_device_wrap_width"
             android:layout_height="match_parent"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true">
             <ImageView
+                android:id="@+id/demo_light_arrow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_above="@id/demo_device_img4"
+                android:layout_above="@id/demo_light_img"
                 android:layout_centerHorizontal="true"
-                android:src="@drawable/ic_keyboard_arrow_down_black_48dp" />
+                android:src="@drawable/ic_keyboard_arrow_up_black_48dp"
+                android:visibility="invisible"/>
 
             <ImageView
-                android:id="@+id/demo_device_img4"
+                android:id="@+id/demo_light_img"
                 style="@style/MyDeviceObject"
-                android:src="@mipmap/battery_foreground"
-                android:layout_above="@+id/text4"
+                android:layout_above="@+id/demo_light_text_view"
                 />
 
             <TextView
-                android:id="@+id/text4"
+                android:id="@+id/demo_light_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:text="99999999"
-                android:textSize="@dimen/device_text" />
-
-
+                style="@style/MyDeviceValue" />
         </RelativeLayout>
     </RelativeLayout>
 

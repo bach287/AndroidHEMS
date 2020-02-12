@@ -19,7 +19,12 @@
         <item name="android:layout_width">130dp</item>
         <item name="android:layout_height">130dp</item>
         <item name="android:layout_centerHorizontal">true</item>
+    </style>
 
+    <style name="MyDeviceValue">
+        <item name="android:textColor">@color/electric_value</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/device_text</item>
     </style>
 
 </resources>

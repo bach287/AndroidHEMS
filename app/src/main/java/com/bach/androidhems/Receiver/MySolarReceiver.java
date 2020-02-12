@@ -12,6 +12,7 @@ import java.io.Serializable;
 
 public class MySolarReceiver extends HouseholdSolarPowerGeneration.Receiver implements Serializable {
     public static Receivable onReceive;
+    public static DemoReceivable demoReceivable;
     public static String operationStatus = "";
     public static String instantaneousValue = "";
     private Context context;
@@ -35,6 +36,9 @@ public class MySolarReceiver extends HouseholdSolarPowerGeneration.Receiver impl
         super.onGetMeasuredInstantaneousAmountOfElectricityGenerated(eoj, tid, esv, property, success);
         if(success){
             instantaneousValue = Long.toString(Long.parseLong(DataHandle.bytesToHex(property.edt),16));
+            if(demoReceivable != null){
+                demoReceivable.demoFoundSolar(instantaneousValue);
+            }
         }else{
             Log.d("Echo:", " Fail to get Solar Instantaneous value");
         }

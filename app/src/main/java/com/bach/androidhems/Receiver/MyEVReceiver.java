@@ -9,6 +9,7 @@ import com.sonycsl.echo.eoj.device.housingfacilities.ElectricVehicle;
 
 public final class MyEVReceiver extends ElectricVehicle.Receiver {
     public static Receivable onReceive;
+    public static DemoReceivable demoReceivable;
     public static String operationStatus = "";
     public static String operationMode = "";
     public static String instantaneousValue = "";
@@ -25,7 +26,7 @@ public final class MyEVReceiver extends ElectricVehicle.Receiver {
         super.onGetOperationStatus(eoj, tid, esv, property, success);
         if(success && property.edt != null){
             operationStatus = DataHandle.statusConverter(property.edt);
-
+            Log.d("Echo:", " status:" + operationStatus);
         }else{
             Log.d("Echo:", " Fail to get EV status");
         }
@@ -48,6 +49,9 @@ public final class MyEVReceiver extends ElectricVehicle.Receiver {
         super.onGetOperationModeSetting(eoj, tid, esv, property, success);
         if (success) {
             operationMode = DataHandle.modeConverter(property.edt);
+            if(demoReceivable != null){
+                demoReceivable.demoEVDisplayMode(operationMode);
+            }
         }else{
             Log.d("Echo:", " Fail to get EV mode");
         }
@@ -94,6 +98,10 @@ public final class MyEVReceiver extends ElectricVehicle.Receiver {
         super.onGetMeasuredInstantaneousChargeDischargeElectricEnergy(eoj, tid, esv, property, success);
         if(success){
             instantaneousValue = Long.toString(Long.parseLong(DataHandle.bytesToHex(property.edt),16));
+            if(demoReceivable != null){
+                demoReceivable.demoFoundEV(instantaneousValue);
+            }
+
         }else{
             Log.d("Echo:", " Fail to get EV Instantaneous value");
         }

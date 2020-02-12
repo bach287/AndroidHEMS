@@ -37,6 +37,11 @@ public class FindDevices extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         Log.d("Echo:", "onResume: ");
+        try {
+            Echo.clear();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         findDevice();
     }
 
@@ -46,12 +51,10 @@ public class FindDevices extends AppCompatActivity {
             @Override
             public void run() {
                 echoStart = new EchoStart(getBaseContext());
-                //-----------
                 generateLayout();
                 Log.d("Echo:", "generateLayout");
             }
         }).start();
-
     }
     private void generateLayout(){
         new Timer().schedule(new TimerTask() {
@@ -98,7 +101,7 @@ public class FindDevices extends AppCompatActivity {
         Log.d("Echo:", "deviceNotFound: check");
         LayoutInflater layoutInflater = LayoutInflater.from(context);
         mainLinear = findViewById(R.id.activity_find_devices);
-        View view = layoutInflater.inflate(R.layout.device_not_found, mainLinear, true);
+        layoutInflater.inflate(R.layout.device_not_found, mainLinear, true);
     }
 
 

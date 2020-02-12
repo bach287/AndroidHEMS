@@ -10,6 +10,7 @@ import com.sonycsl.echo.eoj.device.housingfacilities.Battery;
 
 public class MyBatteryReceiver extends Battery.Receiver {
     public static Receivable onReceive;
+    public static DemoReceivable demoReceivable;
     public static String operationStatus = "";
     public static String operationMode = "";
     public static String instantaneousValue = "";
@@ -34,6 +35,9 @@ public class MyBatteryReceiver extends Battery.Receiver {
         super.onGetMeasuredInstantaneousChargeDischargeElectricEnergy(eoj, tid, esv, property, success);
         if(success){
             instantaneousValue = Long.toString(Long.parseLong(DataHandle.bytesToHex(property.edt),16));
+            if(demoReceivable != null){
+                demoReceivable.demoFoundBattery(instantaneousValue);
+            }
         }else{
             Log.d("Echo:", " Fail to get battery instantaneousValue capacity");
         }

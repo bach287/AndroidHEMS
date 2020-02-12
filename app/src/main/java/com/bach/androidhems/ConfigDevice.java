@@ -191,6 +191,7 @@ public class ConfigDevice extends AppCompatActivity implements Receivable {
                         instantanValue = "0".concat(instantanValue);
                     }
                     edt = edt.concat(instantanValue);
+                    instantanInput.setError("");
                 }else{
                     instantanInput.setError(getResources().getString(R.string.instantan_not_null));
                     return;
@@ -205,17 +206,22 @@ public class ConfigDevice extends AppCompatActivity implements Receivable {
             case "ev":
                 mode = modeSpinner.getSelectedItem().toString();
                 edt = edt.concat(DataHandle.modeReverter(mode));
-                if (instantan != null && instantan.length() != 0 && instantan.length() <= 9){
-                    String instantanValue = instantan.toString();
-                    instantanValue = Long.toHexString(Long.parseLong(instantanValue));
-                    while (instantanValue.length() < 8){
-                        instantanValue = "0".concat(instantanValue);
+                if( !mode.equals("Standby")){
+                    if (instantan != null && instantan.length() != 0 && instantan.length() <= 9 ){
+                        String instantanValue = instantan.toString();
+                        instantanValue = Long.toHexString(Long.parseLong(instantanValue));
+                        while (instantanValue.length() < 8){
+                            instantanValue = "0".concat(instantanValue);
+                        }
+                        edt = edt.concat(instantanValue);
+                    }else{
+                        instantanInput.setError(getResources().getString(R.string.instantan_not_null));
+                        return;
                     }
-                    edt = edt.concat(instantanValue);
                 }else{
-                    instantanInput.setError(getResources().getString(R.string.instantan_not_null));
-                    return;
+                    edt = edt.concat("00000000");
                 }
+                instantanInput.setError("");
                 Log.d("Echo:", "onClickSetBtn: edt:" + edt);
                 try {
                     ((ElectricVehicle)deviceObject).set().reqSetProperty(DataHandle.hexStringToByteArray("ff")[0],DataHandle.hexStringToByteArray(edt)).send();
@@ -226,17 +232,22 @@ public class ConfigDevice extends AppCompatActivity implements Receivable {
             case "battery":
                 mode = modeSpinner.getSelectedItem().toString();
                 edt = edt.concat(DataHandle.modeReverter(mode));
-                if (instantan != null && instantan.length() != 0 && instantan.length() <= 9){
-                    String instantanValue = instantan.toString();
-                    instantanValue = Long.toHexString(Long.parseLong(instantanValue));
-                    while (instantanValue.length() < 8){
-                        instantanValue = "0".concat(instantanValue);
+                if(!mode.equals("Standby")){
+                    if (instantan != null && instantan.length() != 0 && instantan.length() <= 9){
+                        String instantanValue = instantan.toString();
+                        instantanValue = Long.toHexString(Long.parseLong(instantanValue));
+                        while (instantanValue.length() < 8){
+                            instantanValue = "0".concat(instantanValue);
+                        }
+                        edt = edt.concat(instantanValue);
+                    }else{
+                        instantanInput.setError(getResources().getString(R.string.instantan_not_null));
+                        return;
                     }
-                    edt = edt.concat(instantanValue);
                 }else{
-                    instantanInput.setError(getResources().getString(R.string.instantan_not_null));
-                    return;
+                    edt = edt.concat("00000000");
                 }
+                instantanInput.setError("");
                 Log.d("Echo:", "onClickSetBtn: edt:" + edt);
                 try {
                     ((Battery)deviceObject).set().reqSetProperty(DataHandle.hexStringToByteArray("ff")[0],DataHandle.hexStringToByteArray(edt)).send();
